@@ -11,7 +11,7 @@ export default class App extends Component {
     //   .then(res => res.json())
     //   .then(user => this.setState({ username: user.username }));
 
-    fetch('api/test')
+  fetch('/api/users/test')
       .then(res =>  res.json())
       .then(user => {
         console.log(user);
