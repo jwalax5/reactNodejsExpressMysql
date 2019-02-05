@@ -2,7 +2,7 @@ const transaction = require('express').Router();
 const connection = require('./connection');
 
 
-transaction.get('/hihi',(req,res)=> res.send({ss:'hihi'}));
+transaction.get('/hihi',(req,res)=> res.send({ss:'hihii'}));
 
 transaction.get('/test',(req,res)=>{
     console.log('test db transaction connection');
