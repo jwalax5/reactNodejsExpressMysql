@@ -6,7 +6,7 @@ const connection = require('./connection');
 
 users.get('/hihi', (req, res) => res.send({ ss: 'hihi' }));
 
-users.get('/test', (req, res) => {
+users.get('/getAll', (req, res) => {
     console.log('test db user connection');
     // connection.connect();
     connection.query('SELECT * FROM testUser', (error, results, fields) => {
@@ -19,16 +19,6 @@ users.get('/test', (req, res) => {
     });
 });
 
-// users.get('/login', (req, res) => {
-//     console.log('login');
-//     auth.signJwt()
-//         .then((result) => {
-//             res.send({ token: result })
-//         })
-//         .catch((failed) => {
-//             res.send({ token: failed })
-//         });
-// });
 
 users.post('/needToken', (req, res) => {
     console.log('need token');

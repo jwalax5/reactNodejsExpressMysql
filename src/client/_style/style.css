@@ -1,0 +1,14 @@
+.minHeight {
+    min-height: 80vh;
+    background-color: red;
+}
+
+h1 {
+    color: green;
+}
+  
+body {
+    text-align: center;
+    margin: auto;
+}
+  

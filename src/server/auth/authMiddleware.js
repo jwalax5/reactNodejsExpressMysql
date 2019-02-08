@@ -28,13 +28,13 @@ function signJwt() {
 };
 
 function getTokenFromHeader(req, res, next) {
-    console.log('getTokenFromHeader');
+   // console.log('getTokenFromHeader');
     const bearerHeader = req.headers['authorization'];
     // console.log('bearerHeader', bearerHeader);
     if (typeof bearerHeader !== 'undefined') {
         const bearer = bearerHeader.split(' ');
         const bearerToken = bearer[1];
-        console.log('bearerToken', bearerToken);
+        //   console.log('bearerToken', bearerToken);
         req.token = bearerToken;
         next();
     } else {
@@ -45,15 +45,15 @@ function getTokenFromHeader(req, res, next) {
 };
 
 function verifyToken(req, res, next) {
-    console.log('ver tokennn ', req.token);
+    // console.log('ver tokennn ', req.token);
     jwt.verify(req.token, secret, (err, authData) => {
-        console.log('authData', authData);
+        //console.log('authData', authData);
         if (err) {
             res.status(403).json({
                 message: err
             });
         } else {
-            console.log('authData', authData);
+        //    console.log('authData', authData);
             req.authData = authData;
             next();
         }

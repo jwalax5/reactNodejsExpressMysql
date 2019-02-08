@@ -1,12 +1,11 @@
 import React from 'react';
-import { Item } from './item';
+import { Item } from './Item';
 
-export const List = (userList) => {
-
+export const ThumbnailList = (userList) => {
     var { userList } = userList;
 
     return (
-        <div>
+        <div className="row">
                 {
                     userList.length > 0 &&
                     userList.map((t) =>
