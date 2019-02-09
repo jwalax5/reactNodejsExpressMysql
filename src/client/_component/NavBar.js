@@ -11,13 +11,16 @@ export const NavBar = () => (
             <div className="collapse navbar-collapse" id="navbarResponsive">
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">Home</Link>
+                        <span className="iconStyle"><Link to="/" className="nav-link"><i className="fa fa-2x fa-home"></i>Home</Link></span>
                     </li>
                     <li className="nav-item">
-                        <Link to="/auth" className="nav-link">Auth</Link>
+                        <span className="iconStyle"><Link to="/shoppingCart" className="nav-link"><i className="fa fa-2x fa-shopping-cart"></i>Cart</Link></span>
                     </li>
                     <li className="nav-item">
-                        <Link to="/login" className="nav-link">Login</Link>
+                        <span className="iconStyle"><Link to="/auth" className="nav-link"><i className="fa fa-2x fa-user-secret"></i>Auth</Link></span>
+                    </li>
+                    <li className="nav-item">
+                        <span className="iconStyle"><Link to="/login" className="nav-link"><i className="fa fa-2x fa-user"></i>Login</Link></span>
                     </li>
                 </ul>
             </div>

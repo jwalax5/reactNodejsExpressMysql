@@ -1,6 +1,8 @@
 .minHeight {
     min-height: 80vh;
-    background-color: red;
+    min-width: 95vw;
+    background-color: rgb(224, 224, 235);
+    padding-top : 0.2em;
 }
 
 h1 {
@@ -11,4 +13,7 @@ body {
     text-align: center;
     margin: auto;
 }
-  
+
+.iconStyle {
+    color:white;
+}

@@ -4,27 +4,27 @@ export function userReducer(state = {}, action) {
     switch (action.type) {
         case userConstants.REGISTER_REQUEST:
             return Object.assign({}, state, {
-                isFetching: true, isSuccess: false
+                isUserFetching: true, isUserSuccess: false
             });
         case userConstants.REGISTER_SUCCESS:
             return Object.assign({}, state, {
-                isFetching: false, isSuccess: true
+                isUserFetching: false, isUserSuccess: true
             });
         case userConstants.REGISTER_FAILED:
             return Object.assign({}, state, {
-                isFetching: false, isSuccess: false
+                isUserFetching: false, isUserSuccess: false
             });
         case userConstants.GETALL_REQUEST:
             return Object.assign({}, state, {
-                isFetching: true, isSuccess: false
+                isUserFetching: true, isUserSuccess: false
             });
         case userConstants.GETALL_SUCCESS:
             return Object.assign({}, state, {
-                isFetching: false, isSuccess: true, userList: action.userList
+                isUserFetching: false, isUserSuccess: true, userList: action.userList
             });
         case userConstants.GETALL_FAILED:
             return Object.assign({}, state, {
-                isFetching: false, isSuccess: false
+                isUserFetching: false, isUserSuccess: false
             });
         default:
             return state;

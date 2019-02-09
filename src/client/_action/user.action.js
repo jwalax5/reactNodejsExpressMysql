@@ -98,16 +98,23 @@ const getAllFailed = () => {
     }
 };
 
-function getAll() {
+function getAllUser() {
+    console.log('get all user');
     return dispatch => {
         dispatch(getAllRequest());
 
-        userService.getAll()
-            .then(userList => {
-                console.log('yyy', userList);
-                dispatch(getAllSuccess(userList));
-            })
+        userService.getAllUser()
+            .then(
+                userList => {
+                    console.log('userList', userList);
+                    dispatch(getAllSuccess(userList));
+                    dispatch(alertAction.success('Get all user success'));
+                }
+                , failed => {
+                    dispatch(getAllFailed());
+                    dispatch(alertAction.error('Get all user failed'));
+                });
     }
 };
 
-export const userAction = { login, register, getAll };
+export const userAction = { login, register, getAllUser };

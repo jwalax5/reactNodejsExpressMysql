@@ -25,14 +25,7 @@ export const Footer = () => (
                         <li>
                             <a href="#!">Link 2</a>
                         </li>
-                        <li>
-                            <a href="#!">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#!">Link 4</a>
-                        </li>
                     </ul>
-
                 </div>
                 <div className="col-md-3 mb-md-0 mb-3">
                     <h5 className="text-uppercase">Links</h5>
@@ -44,20 +37,12 @@ export const Footer = () => (
                         <li>
                             <a href="#!">Link 2</a>
                         </li>
-                        <li>
-                            <a href="#!">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#!">Link 4</a>
-                        </li>
                     </ul>
-
                 </div>
-
             </div>
         </div>
-        <div className="footer-copyright text-center py-3">© 2018 Copyright:
-          <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+        <div className="footer-copyright text-center py-3">© 2019 Copyright:
+            @jojo
         </div>
 
     </footer>

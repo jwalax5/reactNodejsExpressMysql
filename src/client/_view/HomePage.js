@@ -18,7 +18,7 @@ class HomePage extends Component {
             headers: token
         }
 
-        fetch('/api/route/users/test', req)
+        fetch('/api/route/users/getAll', req)
             .then(res => res.json())
             .then(userList => {
                 console.log(userList);
@@ -34,7 +34,7 @@ class HomePage extends Component {
         return (
             <div>
                 <h1>I am Home Page</h1>
-                {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
+                {username.length>0 ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
                 <ThumbnailList userList={username}></ThumbnailList>
                 <button onClick={this.getUserName}>Get Username</button>
             </div>

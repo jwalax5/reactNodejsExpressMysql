@@ -5,16 +5,16 @@ const auth = require('./auth');
 const connection = require('./route/connection');
 const bodyParser = require('body-parser');
 
-app.use('/api/route', route);
+
 app.use(bodyParser.json());
+app.use('/api/route', route);
 app.use(express.static('dist'));
-app.get('/api/hihi', (req, res) => res.send({ id: 1, username: 'josh' }));
 
 app.post('/api/login', (req, res) => {
     console.log('login');
     console.log('here check username first')
     console.log(req.body);
-    connection.query('SELECT * FROM testUser where name =? and password=?', [req.body.username,req.body.password], (error, results, fields) => {
+    connection.query({ sql: 'SELECT * FROM testUser where name =? and password=?', values: [req.body.username, req.body.password], timeout : 40000 }, (error, results, fields) => {
         if (error) {
             console.log('error :', error);
             throw error;

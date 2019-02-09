@@ -3,7 +3,7 @@ import { authHeader, handleHttpResponse } from '../_helper';
 export const userService = {
     login,
     register,
-    getAll
+    getAllUser
 };
 
 
@@ -61,15 +61,22 @@ function isExistedUsername(userList, username) {
     return isExist;
 };
 
-function getAll() {
+function getAllUser() {
 
-    var allUsers = JSON.parse(localStorage.getItem('userList')) || [];
-    console.log('allUsers', allUsers);
-    if (allUsers) {
-        return Promise.resolve(allUsers);
+    const token = authHeader();
+    console.log('token', token);
+
+    var req = {
+        method: 'GET',
+        headers: token
     }
-    else {
-        return Promise.reject();
-    }
+
+    return fetch('/api/route/users/getAll', req)
+        .then(response => handleHttpResponse(response))
+        .then(userList => {
+            console.log('user service get all', userList);
+            return userList;
+            //userList.map((user) => { this.setState({ userList: [...this.state.userList, user] }); })
+        });
 
 };
