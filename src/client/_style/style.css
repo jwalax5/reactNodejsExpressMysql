@@ -17,3 +17,14 @@ body {
 .iconStyle {
     color:white;
 }
+
+/*image resize and keep aspect ratio*/
+.imgMaxHeight {
+    display: block;
+   /* max-width:230px; */
+    max-height:13em;
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}

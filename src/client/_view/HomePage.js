@@ -9,7 +9,7 @@ class HomePage extends Component {
         super(props);
     }
 
-    getUserName = () => {
+    getAllProduct = () => {
         const token = authHeader();
         console.log('token', token);
 
@@ -18,25 +18,25 @@ class HomePage extends Component {
             headers: token
         }
 
-        fetch('/api/route/users/getAll', req)
+        fetch('/api/route/product/getAll', req)
             .then(res => res.json())
-            .then(userList => {
-                console.log(userList);
-                userList.map((user) => { this.setState({ username: [...this.state.username, user] }); })
+            .then(productList => {
+                console.log(productList);
+                productList.map((product) => { this.setState({ productList: [...this.state.productList, product] }); })
             });
     }
 
-    state = { username: [] };
+    state = { productList: [] };
 
     render() {
-        const { username } = this.state;
+        const { productList } = this.state;
 
         return (
             <div>
                 <h1>I am Home Page</h1>
-                {username.length>0 ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
-                <ThumbnailList userList={username}></ThumbnailList>
-                <button onClick={this.getUserName}>Get Username</button>
+                {productList.length>0 ? <h1>{`Hello ${productList}`}</h1> : <h1>Loading.. please wait!</h1>}
+                <ThumbnailList list={productList}></ThumbnailList>
+                <button onClick={this.getAllProduct}>Get Username</button>
             </div>
         );
     }

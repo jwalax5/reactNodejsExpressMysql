@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import BootstrapTable from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
 import { adminAction, userAction } from '../_action';
+import { dateFormatter } from '../_helper';
 
 
 
@@ -52,19 +53,29 @@ class UserTable extends Component {
 
     save = () => {
         // this.props.dispatch(adminAction.save({ id: 1, name: 'jojo' }));
-        this.props.dispatch(adminAction.save(this.state));
-    }
+        this.props.dispatch(adminAction.saveUser(this.state));
+    };
 
     render() {
         const columns = [{
             dataField: 'id',
-            text: 'User ID'
+            text: 'User ID',
+            editable: false
         }, {
             dataField: 'name',
             text: 'User Name'
         }, {
             dataField: 'password',
-            text: 'User Price'
+            text: 'User Price',
+            editable: false
+        }, {
+            dataField: 'create_date',
+            text: 'Created Date',
+            formatter: dateFormatter
+        }, {
+            dataField: 'modified_date',
+            text: 'Updated Date',
+            formatter: dateFormatter
         }];
         const { isFetching, isAdminSuccess, isUserSuccess, userList, isUserTableUpdated } = this.props;
 
@@ -88,7 +99,7 @@ class UserTable extends Component {
                             <BootstrapTable keyField='id'
                                 data={userList}
                                 columns={columns}
-                                cellEdit={cellEditFactory({ mode: 'dbclick', afterSaveCell: this.updateCell })}
+                                cellEdit={cellEditFactory({ mode: 'click', afterSaveCell: this.updateCell })}
                             />
                         }
                     </div>

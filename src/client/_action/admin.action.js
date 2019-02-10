@@ -1,47 +1,48 @@
 import { adminConstant } from '../_constant';
 import { adminService } from '../_service';
 import { alertAction } from './alert.action';
+import { userAction } from './user.action';
 
 export const adminAction = {
-    save,
+    saveUser,
     updateUserList
 };
 
-function saveRequest() {
-    console.log('call dispatch');
+function saveUserRequest() {
     return {
         type: adminConstant.ADMIN_SAVE_REQUEST
     }
 };
 
-function saveSuccess(message) {
+function saveUserSuccess(message) {
     return {
         type: adminConstant.ADMIN_SAVE_SUCCESS,
         message
     }
 };
 
-function saveError(message) {
+function saveUserError(message) {
     return {
         type: adminConstant.ADMIN_SAVE_FAILED,
         message
     }
 };
 
-function save(userList) {
+function saveUser(userList) {
     return dispatch => {
-        dispatch(saveRequest());
+        dispatch(saveUserRequest());
 
         adminService.save(userList)
             .then(
                 success => {
                     console.log('save success ', success);
-                    dispatch(saveSuccess(success));
+                    dispatch(saveUserSuccess(success));
+                    dispatch(userAction.getAllUser());
                     dispatch(alertAction.success('Save user success'));
                 }
                 , failed => {
                     console.log('save failed ', failed);
-                    dispatch(saveError(failed));
+                    dispatch(saveUserError(failed));
                     dispatch(alertAction.error('Save user failed'));
                 }
             )
